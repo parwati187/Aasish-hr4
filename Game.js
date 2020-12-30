@@ -24,4 +24,15 @@ class Game {
       form.display();
     }
   }
+  play(){
+    form.hide();
+   
+    background(rgb(198,135,103));
+    
+ level1.addImage("leve1",level1Img);
+
+
+
+  //  image(level1Img, 0,0,displayWidth, displayHeight*2);
+  }
 }

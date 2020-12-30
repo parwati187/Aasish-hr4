@@ -15,16 +15,18 @@ function preload(){
     harrypotterImg= loadImage("hpf.png")
     titleImg = loadImage("harryp.png");
     bg1Img=loadImage("background1.jpg")
-level1Img=loadImage("cave.jpg");
+    level1Img=loadImage("cave.jpg");
 
 }
 
 function setup(){
 createCanvas(900,900);
-
+level1=createSprite(500,500,1000,1000);
+level1.scale=1.5;
 bg1 = createSprite(500,500,1000,1000);
 bg1.addImage("bg1",bg1Img);
 bg1.scale=1.5;
+
 
 database = firebase.database();
 game = new Game();
@@ -66,10 +68,16 @@ createEdgeSprites();
      
   }
   if(gameState === 1){
+     //clear();  
+   // bg1.visible=false;
+   level1.velocityX=-3;
+   if(level1.x<200){
+     level1.x=level1.width/2
+   }
+     game.play();   
     
-
-    //clear();              
-    game.play();
+        
+    
   }
   if(gameState === 2){
     game.end();
